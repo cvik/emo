@@ -4,7 +4,7 @@ Simple Mustache rendering app with mostly basic functionality implemented.
 Doesnt yet support tripple curlies(or &-tags), partials or set delimiters.
 
 
-Latest Tag: 0.1.0
+Latest Tag: emo-0.2.0
 
 ## Exports
 
