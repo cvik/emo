@@ -2,6 +2,7 @@
  [{description, "Erlang Mustache template rendering library"},
   {vsn, "0.2.0"},
   {registered, []},
+  {modules, []},
   {applications, [kernel,
                   stdlib
                  ]},
