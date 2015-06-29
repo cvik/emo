@@ -12,8 +12,10 @@
 %% -------------------------------------------------------------------
 
 -spec render(Template::string(), Context::[{atom(), iolist()}]) -> iolist().
+render(Template, Context) when is_binary(Template) ->
+    render(binary_to_list(Template), Context);
 render(Template, Context) ->
-    render(Template, Context, []).
+    iolist_to_binary(render(Template, Context, [])).
 
 %% -------------------------------------------------------------------
 
@@ -71,7 +73,14 @@ render_section(Section, Context, SubContext) when is_function(SubContext) ->
     SubContext(Section, Context).
 
 
-lookup(Tag, Context) ->
+lookup(Tag, Context) when is_map(Context) ->
+    case maps:find(list_to_atom(Tag), Context) of
+        error ->
+            <<"">>;
+        {ok, Value} ->
+            Value
+    end;
+lookup(Tag, Context) when is_list(Context) ->
     case lists:keyfind(list_to_atom(Tag), 1, Context) of
         false ->
             <<"">>;
