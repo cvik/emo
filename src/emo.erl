@@ -11,7 +11,10 @@
 
 %% -------------------------------------------------------------------
 
--spec render(Template::string(), Context::[{atom(), iolist()}]) -> iolist().
+-type template() :: string()|binary().
+-type context() :: [{atom(), iodata()}]|map().
+
+-spec render(Template::template(), Context::context()) -> binary().
 render(Template, Context) when is_binary(Template) ->
     render(binary_to_list(Template), Context);
 render(Template, Context) ->
