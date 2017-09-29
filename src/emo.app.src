@@ -2,9 +2,12 @@
  [{description, "Erlang Mustache template rendering library"},
   {vsn, "0.3.0"},
   {registered, []},
-  {modules, []},
   {applications, [kernel,
                   stdlib
                  ]},
+  {maintainers, ["Christoffer Vikstrom"]},
+  {licenses, ["Apache"]},
+  {links, [{"Github", "https://github.com/cvik/emo"}]},
+  {modules, []},
   {env, []}
  ]}.
